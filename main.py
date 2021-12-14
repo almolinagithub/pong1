@@ -1,16 +1,31 @@
-# This is a sample Python script.
+import turtle
+import paddles
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+width = 800
+height = 600
+x = 330
+y = 0
+
+screen = turtle.Screen()
+screen.setup(width, height)
+screen.screensize(width, height)
+screen.bgcolor("black")
+screen.title("pong")
+screen.tracer(0)
+screen.listen()
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+paddle_right = paddles.Paddle()
+paddle_right.goto(x,y)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+paddle_left = paddles.Paddle()
+paddle_left.goto(-x,0)
+
+screen.onkey(lambda :paddle_right.forward(40), "Up")
+
+
+screen.update()
+screen.exitonclick()
+
