@@ -1,5 +1,8 @@
 import turtle
+import time
 import paddles
+
+PLAYING  = True
 
 width = 800
 height = 600
@@ -11,21 +14,26 @@ screen.setup(width, height)
 screen.screensize(width, height)
 screen.bgcolor("black")
 screen.title("pong")
-screen.tracer(0)
+
 screen.listen()
 
 
+while PLAYING:
+
+    screen.update()
+    time.sleep(0.2)
+    paddle_right = paddles.Paddle()
+    paddle_left = paddles.Paddle()
+
+    paddle_right.goto(x,y)
+    paddle_left.goto(-x,0)
+
+    turtle.onkey(paddle_right.move_right, "Up")
+    turtle.onkey(paddle_right.move_left, "Down")
+
+    turtle.onkey(paddle_left.move_right, "a")
+    turtle.onkey(paddle_left.move_left, "z")
 
 
-paddle_right = paddles.Paddle()
-paddle_right.goto(x,y)
-
-paddle_left = paddles.Paddle()
-paddle_left.goto(-x,0)
-
-screen.onkey(lambda :paddle_right.forward(40), "Up")
-
-
-screen.update()
-screen.exitonclick()
+    screen.exitonclick()
 
