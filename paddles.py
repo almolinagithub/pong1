@@ -13,9 +13,9 @@ class Paddle(Turtle):
         self.shapesize(stretch_wid=1, stretch_len= 10)
 
     def move_right(self):
-        self.forward(10)
+        self.forward(20)
 
     def move_left(self):
-        self.back(10)
+        self.back(20)
 
 
