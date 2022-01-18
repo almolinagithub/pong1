@@ -46,12 +46,14 @@ turtle.onkey(paddle_left.move_left, "z")
 ball = Ball()
 
 
-while  PLAYING:
-    time.sleep(0.1)
+while PLAYING:
+    time.sleep(0)
     screen.update()
     screen.tracer(1)
-    ball.ball_move()
-
+    if ball.xcor() <= top - 35:
+        ball.move()
+    else:
+        ball.bounce_top()
 
 
 
