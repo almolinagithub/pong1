@@ -4,10 +4,13 @@ from ball import Ball
 from paddles import Paddle
 from time import sleep
 
-PLAYING  = True
-
 height = 600
 width = 800
+
+
+PLAYING  = True
+
+
 x = 330
 y = 0
 
@@ -20,11 +23,13 @@ screen.title("pong")
 screen.tracer(0)
 screen.listen()
 
+
 #top and bottom of the screen
 top = screen.window_height() / 2
 right = screen.window_width() / 2
 bottom = - top
 left = - right
+
 
 #making the paddles
 paddle_right = Paddle((x, 0))
@@ -42,7 +47,7 @@ turtle.onkey(paddle_right.move_left, "Down")
 turtle.onkey(paddle_left.move_right, "a")
 turtle.onkey(paddle_left.move_left, "z")
 
-#crate the ball
+#create the ball
 ball = Ball()
 
 
@@ -50,10 +55,11 @@ while PLAYING:
     time.sleep(0)
     screen.update()
     screen.tracer(1)
-    if ball.xcor() <= top - 35:
-        ball.move()
-    else:
-        ball.bounce_top()
+
+    ball.move()
+    print(ball.xcor(), ball.ycor())
+
+
 
 
 
