@@ -7,13 +7,10 @@ from time import sleep
 height = 600
 width = 800
 
-
 PLAYING  = True
-
 
 x = 330
 y = 0
-
 
 screen = turtle.Screen()
 screen.setup(width, height)
@@ -29,7 +26,6 @@ top = screen.window_height() / 2
 right = screen.window_width() / 2
 bottom = - top
 left = - right
-
 
 #making the paddles
 paddle_right = Paddle((x, 0))
@@ -55,10 +51,13 @@ while PLAYING:
     time.sleep(0)
     screen.update()
     screen.tracer(1)
-
     ball.move()
-    print(ball.xcor(), ball.ycor())
+    if ball.ycor() > top - 30 or ball.ycor() < bottom + 30:
+        ball.bounce_y()
+    elif ball.xcor() == right - 50 and ball.distance(paddle_right) == 20:
+        ball.bounce_x()
 
+    print(ball.xcor(),ball.ycor())
 
 
 
