@@ -60,7 +60,5 @@ while PLAYING:
     print(ball.xcor(),ball.ycor())
 
 
-
-
 screen.exitonclick()
 

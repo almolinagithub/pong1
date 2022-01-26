@@ -17,5 +17,3 @@ class Paddle(Turtle):
 
     def move_left(self):
         self.back(20)
-
-
