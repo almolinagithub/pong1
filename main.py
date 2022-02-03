@@ -2,7 +2,7 @@ import time
 import turtle
 from ball import Ball
 from paddles import Paddle
-from time import sleep
+
 
 height = 600
 width = 800
@@ -48,16 +48,21 @@ ball = Ball()
 
 
 while PLAYING:
-    time.sleep(0)
+    time.sleep(0.05)
     screen.update()
-    screen.tracer(1)
+    screen.tracer(0)
     ball.move()
     if ball.ycor() > top - 30 or ball.ycor() < bottom + 30:
         ball.bounce_y()
-    elif ball.xcor() == right - 50 and ball.distance(paddle_right) == 20:
+
+    if ball.distance(paddle_right) < 40:
+        ball.bounce_x()
+    if ball.distance(paddle_left) < 40:
         ball.bounce_x()
 
-    print(ball.xcor(),ball.ycor())
+
+
+
 
 
 screen.exitonclick()

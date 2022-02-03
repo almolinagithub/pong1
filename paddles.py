@@ -9,8 +9,9 @@ class Paddle(Turtle):
         self.setheading(90)
         self.shape("square")
         self.color("white")
+        self.shapesize(2,10,8)
         self.width(20)
-        self.shapesize(stretch_wid=1, stretch_len= 10)
+
 
     def move_right(self):
         self.forward(20)
