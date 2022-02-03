@@ -23,3 +23,4 @@ class Ball(Turtle):
     def bounce_x(self):
         self.x_move *= -1
 
+
