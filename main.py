@@ -1,8 +1,11 @@
 import time
 import turtle
+import point_manager
 from ball import Ball
 from paddles import Paddle
 
+POINTS_RIGHT = 0
+POINTS_LEFT  = 0
 
 height = 600
 width = 800
@@ -46,6 +49,9 @@ turtle.onkey(paddle_left.move_left, "z")
 #create the ball
 ball = Ball()
 
+#create teh scoreboard
+
+scoreboard = point_manager.ScoreBoard()
 
 while PLAYING:
     time.sleep(0.05)
@@ -59,6 +65,22 @@ while PLAYING:
         ball.bounce_x()
     if ball.distance(paddle_left) < 40:
         ball.bounce_x()
+    if ball.xcor() > 400:
+        POINTS_LEFT += 1
+        scoreboard.score_writer_left(POINTS_LEFT)
+        ball.reset_position()
+
+    if ball.xcor() < -400:
+        POINTS_RIGHT += 1
+        scoreboard.score_writer_right( POINTS_RIGHT)
+        ball.reset_position()
+
+
+
+
+
+
+
 
 
 
